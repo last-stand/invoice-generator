@@ -1,19 +1,18 @@
 package com.learning.invocegenerator.models
 
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import javax.persistence.*
 
 @Entity
 @Table(name = "invoice")
-class Invoice (
+data class Invoice(
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int = 0,
 
-    @OneToOne
-    val content: Content,
+    val billTo: String,
 
-    @OneToOne
-    val product: Product,
+    val date: String = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss"))
 
-    val quantity: Int
 )

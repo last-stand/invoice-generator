@@ -1,6 +1,6 @@
 package com.learning.invocegenerator.controller
 
-import com.learning.invocegenerator.repository.InvoiceRepository
+import com.learning.invocegenerator.repository.InvoiceItemRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController
 class InvoiceController{
 
     @Autowired
-    lateinit var invoiceRepository: InvoiceRepository
+    lateinit var invoiceItemRepository: InvoiceItemRepository
 
     @GetMapping("/")
     fun getAllInvoices() =
-            invoiceRepository.findAll()
+            invoiceItemRepository.findAll()
 
     @GetMapping("/{id}")
     fun getInvoiceById(@PathVariable id: Int) =
-            invoiceRepository.findById(id)
+            invoiceItemRepository.findByInvoiceId(id)
 }

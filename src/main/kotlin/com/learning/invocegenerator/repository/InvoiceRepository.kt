@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface InvoiceRepository: CrudRepository<Invoice, Int> {
+interface InvoiceRepository : CrudRepository<Invoice, Int> {
 }
