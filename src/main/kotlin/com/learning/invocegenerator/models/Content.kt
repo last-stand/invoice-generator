@@ -1,18 +1,16 @@
 package com.learning.invocegenerator.models
 
+import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
 @Table(name = "content")
-class Content (
+data class Content(
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int = 0,
 
-    @ManyToOne
-    val orders: Order,
+    val billTo: String,
 
-    @ManyToOne
-    val product: Product,
-
-    val quantity: Int
+    val date: LocalDateTime = LocalDateTime.now()
 )

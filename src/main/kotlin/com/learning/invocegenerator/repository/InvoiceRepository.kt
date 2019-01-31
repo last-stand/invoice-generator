@@ -1,9 +1,9 @@
 package com.learning.invocegenerator.repository
 
-import com.learning.invocegenerator.models.Order
+import com.learning.invocegenerator.models.Invoice
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface OrderRepository: CrudRepository<Order, Int> {
+interface InvoiceRepository: CrudRepository<Invoice, Int> {
 }
