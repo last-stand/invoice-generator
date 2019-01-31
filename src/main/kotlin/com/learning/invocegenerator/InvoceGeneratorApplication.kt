@@ -26,13 +26,13 @@ class InvoceGeneratorApplication {
         productRepository.save(knife)
         productRepository.save(milk)
 
-        val invoice1 = Invoice(billTo = "Me")
-        val invoice2 = Invoice(billTo = "You")
+        val invoiceItem1 = InvoiceItem(product = butter, quantity = 5)
+        val invoiceItem2 = InvoiceItem(product = knife, quantity = 1)
+        val invoiceItem3 = InvoiceItem(product = milk, quantity = 2)
+        val invoiceItem4 = InvoiceItem(product = milk, quantity = 8)
 
-        val invoiceItem1 = InvoiceItem(product = butter, quantity = 5, invoice = invoice1)
-        val invoiceItem2 = InvoiceItem(product = knife, quantity = 1, invoice = invoice1)
-        val invoiceItem3 = InvoiceItem(product = milk, quantity = 2, invoice = invoice1)
-        val invoiceItem4 = InvoiceItem(product = milk, quantity = 8, invoice = invoice2)
+        val invoice1 = Invoice(customer = "Me", invoiceItem = setOf(invoiceItem1, invoiceItem2, invoiceItem3))
+        val invoice2 = Invoice(customer = "You", invoiceItem = setOf(invoiceItem4))
 
         invoiceRepository.save(invoice1)
         invoiceRepository.save(invoice2)
@@ -47,4 +47,3 @@ class InvoceGeneratorApplication {
 fun main(args: Array<String>) {
     runApplication<InvoceGeneratorApplication>(*args)
 }
-
